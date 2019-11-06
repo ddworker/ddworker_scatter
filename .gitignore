@@ -2,3 +2,5 @@
 *.class
 *.iml
 out
+.idea/uiDesigner.xml
+*.iml
