@@ -1,4 +1,4 @@
-package com.ddworker;
+package com.ddworker.testClass;
 
 public class BitOperatiion {
 
