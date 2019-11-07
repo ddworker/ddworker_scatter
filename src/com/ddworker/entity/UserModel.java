@@ -3,24 +3,22 @@ package com.ddworker.entity;
 import java.util.Objects;
 
 /**
- * 用户实体类
+ * 用户类
  */
 
 public class UserModel implements Cloneable {
     public String name;
     public int num;
     public int age;
-    public double salary;
     public Address addr;
 
     public UserModel() {
     }
 
-    public UserModel(String name, int num, int age, double salary) {
+    public UserModel(String name, int num, int age) {
         this.name = name;
         this.num = num;
         this.age = age;
-        this.salary = salary;
     }
 
     public int getNum() {
@@ -47,14 +45,6 @@ public class UserModel implements Cloneable {
         this.age = age;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
     @Override
     public boolean equals(Object o) {
         /**
@@ -71,13 +61,12 @@ public class UserModel implements Cloneable {
          */
         return this.num == userModel.num &&
                 this.age == userModel.age &&
-                Double.compare(userModel.salary, this.salary) == 0 &&
                 this.name.equals(userModel.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, num, age, salary, addr);
+        return Objects.hash(name, num, age, addr.hashCode());
     }
 
     @Override
@@ -86,7 +75,6 @@ public class UserModel implements Cloneable {
                 "name='" + name + '\'' +
                 ", num=" + num +
                 ", age=" + age +
-                ", salary=" + salary +
                 ", address=" + addr.toString() +
                 '}';
     }
@@ -100,10 +88,15 @@ public class UserModel implements Cloneable {
      */
     @Override
     public Object clone() throws CloneNotSupportedException {
+        if(Objects.isNull(addr)) addr = new Address(); //此处，如果addr 为空，则在复制的时候会抛出空指针异常
         Object obj = super.clone();
         Address cloneAddress=(Address) this.addr.clone();
         ((UserModel) obj).addr = cloneAddress;
         return obj;
+    }
+
+    public void doSomeThing(){
+        System.out.println("I'm " + name+ " and I'm " +age+ " years old");
     }
 
 }
