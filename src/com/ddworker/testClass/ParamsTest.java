@@ -25,19 +25,23 @@ import java.util.Arrays;
  */
 public class ParamsTest{
     String str = new String("hello");
+    String strWorld = "world"; //字符串常量池新增"world" ,验证fun()中,形参发生变化,新建了Object
     char[] ch = {'a','b','c'};
     public void fun(String str, char ch[]){
-    //change params value
-    str="world";
-    ch[0]='d';
-    //print class member
-    System.out.println("Class.member: str "+this.str); //hello
-    System.out.println("Class.member: ch "+Arrays.toString(this.ch)); //[d,b,c]
-}
-public static void main(String[] args) {
-	ParamsTest test1 = new ParamsTest();
-    test1.fun(test1.str,test1.ch);
-    System.out.print(test1.str + " and ");
-    System.out.print(test1.ch);
+        System.out.println(str == this.str); //it's class member str
+        //change params value
+        str="world";
+        System.out.println("Class.member: str "+this.str); //hello
+        System.out.println("The Obejct str wasn't this class member:str <" + (str == this.str)
+                +"> and It's a new Object that equals class member:strWorld: <" + (str == this.strWorld)+ ">");
+        ch[0]='d';
+        //print class member
+        System.out.println("Class.member: ch "+Arrays.toString(this.ch)); //[d,b,c]
+    }
+    public static void main(String[] args) {
+        ParamsTest test1 = new ParamsTest();
+        test1.fun(test1.str,test1.ch);
+        System.out.print(test1.str + " and ");
+        System.out.print(test1.ch);
     }
 }
