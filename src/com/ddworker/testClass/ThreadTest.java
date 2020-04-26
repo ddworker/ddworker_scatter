@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * volatile 修饰变量, 实现可见性,一定程度上保证有序性,不支持原子性
  * Synchronized  修饰方法 类, 实现锁, 达到原子性,有序性,可见性
  * lock  锁线程,lock.lockInterruptibly 支持请求锁的线程中断
- *		  lock 最终需要释放锁,lock.unlock, 线程中断后不需要释放锁,线程中断后会抛出异常
+ *		  lock 最终需要释放锁,lock.unlock, 线程中断后不需要释放锁,线程中断后会抛出异常IllegalMonitorStateException
  * @author Cit
  *
  */
