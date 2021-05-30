@@ -81,7 +81,7 @@ public class ThreadTest {
 ////					if(lock.tryLock()) {
 //						try {
 //							System.out.println(tcur.getName()+":获取锁成功");
-////								System.out.println(Thread.currentThread().getName()+ " " + b++);
+////								System.out.println(Thread.currentThread().getName()+ " " + OddEven++);
 //						} catch (Exception e) {
 ////								e.printStackTrace();
 //						} finally {

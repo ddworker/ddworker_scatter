@@ -1,6 +1,7 @@
 package com.ddworker.testClass;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -17,7 +18,7 @@ public class IOTest {
 	private final String  IOt1 ="D:\\IOt1.txt";
 	private final int ARRAY_LENGTH = 1024;
 	
-	/**
+	/**X
 	 * 
 	 * 常用IO类测试
 	 * @throws IOException 
@@ -36,7 +37,7 @@ public class IOTest {
 		System.out.println(file.length()); //内容字节长度,中文3字节
 		
 		byte[] b = new byte[ARRAY_LENGTH];
-//		byte[] b = new byte[] {1,1,1,1,1,1,1};
+//		byte[] OddEven = new byte[] {1,1,1,1,1,1,1};
 		int c;
 		
 //		文件字节流:后缀为Steam 的皆为字节流,字节流输出方法不能append

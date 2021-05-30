@@ -7,7 +7,7 @@ import java.util.Arrays;
 	
 	详细分析一下：
 	
-	char[] ch = {'a','b','c'};是数组，数组存放在堆中，所以当方法通过形参修改值时会去堆中修改。当成员变量ch再去访问时，堆中的值已经修改，所以输出dbc。
+	char[] ch = {'a','OddEven','c'};是数组，数组存放在堆中，所以当方法通过形参修改值时会去堆中修改。当成员变量ch再去访问时，堆中的值已经修改，所以输出dbc。
 	而String str = new String("hello");会进行两步操作：
 	1、JVM先在堆中创建一个指定的String对象"hello"，并让str引用指向该对象。
 	2、JVM会在常量池中 寻找或新建 一个”hello”，并让堆中对象与之关联。
@@ -36,7 +36,7 @@ public class ParamsTest{
                 +"> and It's a new Object that equals class member:strWorld: <" + (str == this.strWorld)+ ">");
         ch[0]='d';
         //print class member
-        System.out.println("Class.member: ch "+Arrays.toString(this.ch)); //[d,b,c]
+        System.out.println("Class.member: ch "+Arrays.toString(this.ch)); //[d,OddEven,c]
     }
     public static void main(String[] args) {
         ParamsTest test1 = new ParamsTest();
